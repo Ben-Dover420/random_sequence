@@ -1,5 +1,4 @@
 import numpy as np
-import random
 
 start, stop = 1, 0
 
@@ -14,20 +13,11 @@ while start >= stop:
 numbers = np.arange(start, stop + 1) # [start, stop]
 length = len(numbers)
 
-print(f"Numbers array: {numbers}")
-print(f"Current length: {length}")
+while length > 0:
+    index = np.random.randint(0, length) # Randomly generates index for numbers array
+    chosen_number = numbers[index] # The chosen number from index
 
-index = random.randint(0, length - 1) # Randomly generates index for numbers list
-chosen_num = numbers[index]
+    print(f"Number {chosen_number}")
 
-
-print(f"Chosen number: {chosen_num}")
-
-numbers = np.delete(numbers, chosen_num) # Removes chosen number from numbers array 
-length = len(numbers) # New length
-
-print(f"Numbers array: {numbers}")
-print(f"Current length: {length}")
-
-
-#while length > 0:
+    numbers = np.delete(numbers, index) # Deletes chosen number from numbers array and replaces previous array
+    length -= 1 # Length of numbers array has descreased by one. 
