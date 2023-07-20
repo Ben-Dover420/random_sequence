@@ -1,8 +1,7 @@
 import numpy as np
 
 def number_generator(start, stop):
-    # Asks for start and end value
-    while start >= stop:
+    while start >= stop: # Asks for start and end value
         start = int(input("Start value of intervall: "))
         stop = int(input("End value of intervall: "))
 
