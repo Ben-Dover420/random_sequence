@@ -57,7 +57,9 @@ class Application(tk.Tk):
             return
             
         numbers = number_generator(int(self.startValue.get()), int(self.endValue.get())) # Initiates when every condition is met
-        print(numbers)
+        
+        for number in range(len(numbers)):
+            messagebox.showinfo(title = "Generated number", message = f"Number: {numbers[number]}")
 
 if __name__ == "__main__":
     root = Application()
