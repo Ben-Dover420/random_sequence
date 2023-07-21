@@ -29,7 +29,7 @@ class NumberGen(tk.Tk):
         self.endLabel = ttk.Label(self.inputFrame, text = "End value:", font = self.fontFamilyH2)
 
         # Generate button
-        self.generateButton = tk.Button(self, text = "Generate", font = self.fontFamilyH3)
+        self.generateButton = tk.Button(self, text = "Generate", font = self.fontFamilyH3, command = lambda: number_generator(int(self.startValue.get()), int(self.endValue.get())))
 
         self.appLabel.pack(pady = "5")
         self.mainFrame.pack(pady = "5")
