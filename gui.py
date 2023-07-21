@@ -1,7 +1,9 @@
 import tkinter as tk
+import sv_ttk
 from tkinter import ttk, font, messagebox
 from num_gen import number_generator
 from check_string_func import check_string
+
 
 class Application(tk.Tk):
     def __init__(self):
@@ -9,11 +11,14 @@ class Application(tk.Tk):
 
         # Frontend of GUI
         self.title("Number Generator")
-        self.geometry("600x300")
+        self.geometry("600x250")
         self.iconbitmap("dice_icon.ico")
-        self.fontFamilyH1 = font.Font(family = 'Playfair Display', size = 40)
-        self.fontFamilyH2 = font.Font(family = 'Playfair Display', size = 25)
-        self.fontFamilyH3 = font.Font(family = 'Playfair Display', size = 15)
+        self.fontFamilyH1 = font.Font(size = 40)
+        self.fontFamilyH2 = font.Font(size = 25)
+        self.fontFamilyH3 = font.Font(size = 15)
+
+        style = ttk.Style()
+        style.configure('styledButton', font = self.fontFamilyH3)
     
         self.appLabel = ttk.Label(self, text = "Number Generator", font = self.fontFamilyH1)        
 
@@ -31,7 +36,7 @@ class Application(tk.Tk):
         self.endLabel = ttk.Label(self.inputFrame, text = "End value:", font = self.fontFamilyH2)
 
         # Generate button
-        self.generateButton = tk.Button(self, text = "Generate", font = self.fontFamilyH3, command = self.buttonAction)
+        self.generateButton = ttk.Button(self, text = "Generate", style='Accent.TButton', command = self.buttonAction)
         
         # Displays widgets to GUI
         self.appLabel.pack(pady = "5")
@@ -63,4 +68,5 @@ class Application(tk.Tk):
 
 if __name__ == "__main__":
     root = Application()
+    sv_ttk.set_theme("dark")
     root.mainloop()
