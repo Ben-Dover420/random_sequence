@@ -56,7 +56,8 @@ class Application(tk.Tk):
             messagebox.showerror(title = "Invalid intervall", message = "End value has to be greater than start value, please try again.")
             return
             
-        number_generator(int(self.startValue.get()), int(self.endValue.get())) # Initiates when every condition is met
+        numbers = number_generator(int(self.startValue.get()), int(self.endValue.get())) # Initiates when every condition is met
+        print(numbers)
 
 if __name__ == "__main__":
     root = Application()
