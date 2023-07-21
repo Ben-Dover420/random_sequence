@@ -1,13 +1,6 @@
 import numpy as np
 
 def number_generator(start, stop):
-    while start >= stop: # Asks for start and end value
-        start = int(input("Start value of intervall: "))
-        stop = int(input("End value of intervall: "))
-
-        if start >= stop: # If start value is greater than end value
-            print("End value has to be greater than start value \n")
-
     numbers = np.arange(start, stop + 1) # [start, stop]
     length = len(numbers)
 
