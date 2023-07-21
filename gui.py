@@ -59,7 +59,7 @@ class Application(tk.Tk):
         numbers = number_generator(int(self.startValue.get()), int(self.endValue.get())) # Initiates when every condition is met
         
         for number in range(len(numbers)):
-            messagebox.showinfo(title = "Generated number", message = f"Number: {numbers[number]}")
+            messagebox.showinfo(title = "Random numbers", message = f"Random number ({number + 1}): {numbers[number]}")
 
 if __name__ == "__main__":
     root = Application()
