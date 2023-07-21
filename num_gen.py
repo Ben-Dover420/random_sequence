@@ -1,7 +1,7 @@
 import numpy as np
 
 def number_generator(start, stop):
-    numbers = np.arange(start, stop + 1) # [start, stop]
+    """numbers = np.arange(start, stop + 1) # [start, stop]
     length = len(numbers)
 
     while length > 0:
@@ -11,4 +11,5 @@ def number_generator(start, stop):
         print(f"Number {chosen_number}")
 
         numbers = np.delete(numbers, index) # Deletes chosen number from numbers array and replaces previous array
-        length -= 1 # Length of numbers array has descreased by one. 
+        length -= 1 # Length of numbers array has descreased by one. """
+    print(start, stop)
