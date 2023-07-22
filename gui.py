@@ -11,7 +11,7 @@ class Application(tk.Tk):
         # Frontend of GUI
         self.title("Number Generator")
         self.geometry("600x250")
-        self.iconbitmap("dice_icon.ico")
+        self.iconbitmap("dice.ico")
         self.fontFamilyH1 = font.Font(size = 40)
         self.fontFamilyH2 = font.Font(size = 25)
         self.fontFamilyH3 = font.Font(size = 15)
