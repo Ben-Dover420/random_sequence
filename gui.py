@@ -11,13 +11,13 @@ class Application(tk.Tk):
         # Frontend of GUI
         self.title("Number Generator")
         self.geometry("600x250")
-        self.iconbitmap("dice.ico")
+        self.iconbitmap("dice.icon")
         self.fontFamilyH1 = font.Font(size = 40)
         self.fontFamilyH2 = font.Font(size = 25)
         self.fontFamilyH3 = font.Font(size = 15)
 
         style = ttk.Style()
-        style.configure('styledButton', font = self.fontFamilyH3)
+        style.configure('S.TButton', font = self.fontFamilyH3)
     
         self.appLabel = ttk.Label(self, text = "Number Generator", font = self.fontFamilyH1)        
 
@@ -35,7 +35,7 @@ class Application(tk.Tk):
         self.endLabel = ttk.Label(self.inputFrame, text = "End value:", font = self.fontFamilyH2)
 
         # Generate button
-        self.generateButton = ttk.Button(self, text = "Generate", command = self.buttonAction) 
+        self.generateButton = ttk.Button(self, text = "Generate", style = 'S.TButton', command = self.buttonAction) 
         
         # Displays widgets to GUI
         self.appLabel.pack(pady = "5")
