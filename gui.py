@@ -14,34 +14,33 @@ class Application(tk.Tk):
         self.geometry("600x280")
         self.iconbitmap("dice.ico")
 
-        self.fontFamilyH1 = font.Font(size = 40)
-        self.fontFamilyH2 = font.Font(size = 25)
-        self.fontFamilyH3 = font.Font(size = 15)
+        fontFamilyH1 = font.Font(size = 40)
+        fontFamilyH2 = font.Font(size = 25)
 
-        self.appLabel = ttk.Label(self, text = "Number Generator", font = self.fontFamilyH1)        
+        appLabel = ttk.Label(self, text = "Number Generator", font = fontFamilyH1)        
 
         # Input fields
-        self.inputFrame = ttk.Frame(self, style = 'styledFrame.TFrame')
+        inputFrame = ttk.Frame(self, style = 'styledFrame.TFrame')
 
         self.startValue = tk.StringVar()
-        self.startEntry = ttk.Entry(self.inputFrame, textvariable = self.startValue, width = 5, font = self.fontFamilyH2)
-        self.startLabel = ttk.Label(self.inputFrame, text = "Start value:", font = self.fontFamilyH2)
+        startEntry = ttk.Entry(inputFrame, textvariable = self.startValue, width = 5, font = fontFamilyH2)
+        startLabel = ttk.Label(inputFrame, text = "Start value:", font = fontFamilyH2)
 
         self.endValue = tk.StringVar()
-        self.endEntry = ttk.Entry(self.inputFrame, textvariable = self.endValue, width = 5, font = self.fontFamilyH2)
-        self.endLabel = ttk.Label(self.inputFrame, text = "End value:", font = self.fontFamilyH2)
+        endEntry = ttk.Entry(inputFrame, textvariable = self.endValue, width = 5, font = fontFamilyH2)
+        endLabel = ttk.Label(inputFrame, text = "End value:", font = fontFamilyH2)
 
         # Generate button
-        self.generateButton = ttk.Button(self, text = "Generate", style = 'Accent.TButton', width = 15, command = self.buttonAction) 
+        generateButton = ttk.Button(self, text = "Generate", style = 'Accent.TButton', width = 15, command = self.buttonAction) 
         
         # Displays widgets to GUI
-        self.appLabel.pack(pady = "15")
-        self.inputFrame.pack()
-        self.startLabel.grid(column = 0, row = 0)
-        self.startEntry.grid(column = 1, row = 0, padx = 2)
-        self.endLabel.grid(column = 0, row = 1)
-        self.endEntry.grid(column = 1, row = 1)
-        self.generateButton.pack(pady = "25")
+        appLabel.pack(pady = "15")
+        inputFrame.pack()
+        startLabel.grid(column = 0, row = 0)
+        startEntry.grid(column = 1, row = 0, padx = 2)
+        endLabel.grid(column = 0, row = 1)
+        endEntry.grid(column = 1, row = 1)
+        generateButton.pack(pady = "25")
 
     def buttonAction(self):
         if not self.startValue.get() or not self.endValue.get(): # Checks if there are any values in startvalue and endvalue
