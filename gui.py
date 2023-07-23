@@ -10,21 +10,24 @@ class Application(tk.Tk):
 
         # Frontend of GUI
         self.title("Number Generator")
-        self.geometry("600x250")
-        self.iconbitmap("dice.icon")
-        self.fontFamilyH1 = font.Font(size = 40)
-        self.fontFamilyH2 = font.Font(size = 25)
-        self.fontFamilyH3 = font.Font(size = 15)
+        self.geometry("600x280")
+        self.iconbitmap("dice.ico")
+        self.fontFamilyH1 = font.Font(font = ('Playfair Display', 40))
+        self.fontFamilyH2 = font.Font(font = ('Playfair Display', 25))
+        self.fontFamilyH3 = font.Font(font = ('Playfair Display', 15))
 
+        # Configuration of styles for widgets
         style = ttk.Style()
-        style.configure('S.TButton', font = self.fontFamilyH3)
-    
+        #style.theme_use('classic')
+        # style.configure('styledButton.TButton', font = self.fontFamilyH3)
+
+
         self.appLabel = ttk.Label(self, text = "Number Generator", font = self.fontFamilyH1)        
 
-        self.mainFrame = ttk.Frame(self)
+        #self.mainFrame = ttk.Frame(self, style = 'mainFrame.TFrame')
 
         # Input fields
-        self.inputFrame = ttk.Frame(self.mainFrame)
+        self.inputFrame = ttk.Frame(self)
 
         self.startValue = tk.StringVar()
         self.startEntry = ttk.Entry(self.inputFrame, textvariable = self.startValue, width = 5, font = self.fontFamilyH2)
@@ -35,12 +38,12 @@ class Application(tk.Tk):
         self.endLabel = ttk.Label(self.inputFrame, text = "End value:", font = self.fontFamilyH2)
 
         # Generate button
-        self.generateButton = ttk.Button(self, text = "Generate", style = 'S.TButton', command = self.buttonAction) 
+        self.generateButton = ttk.Button(self, text = "Generate", command = self.buttonAction) 
         
         # Displays widgets to GUI
         self.appLabel.pack(pady = "5")
-        self.mainFrame.pack(pady = "5")
-        self.inputFrame.grid()
+        #self.mainFrame.pack(pady = "5")
+        self.inputFrame.pack()
         self.startLabel.grid(column = 0, row = 0)
         self.startEntry.grid(column = 1, row = 0, padx = 2)
         self.endLabel.grid(column = 0, row = 1)
