@@ -1,11 +1,14 @@
 import tkinter as tk
 import customtkinter as ct
 from tkinter import ttk, font, messagebox
-from num_gen import number_generator
 from check_string_func import check_string
+import pyglet
 
-"""
-class Application(tk.Tk):
+ct.set_appearance_mode("System")
+ct.set_default_color_theme("blue")
+pyglet.font.add_file('Roboto-Regular.ttf')
+
+class Application(ct.CTk):
     def __init__(self):
         super().__init__()
 
@@ -14,11 +17,12 @@ class Application(tk.Tk):
         self.geometry("600x280")
         self.iconbitmap("dice.ico")
 
-        fontFamilyH1 = font.Font(size = 40)
-        fontFamilyH2 = font.Font(size = 25)
+        fontFamilyH1 = ('Roboto Normal', 40) 
+        fontFamilyH2 = ('Roboto Normal', 25)
 
-        appLabel = ttk.Label(self, text = "Number Generator", font = fontFamilyH1)        
-
+        appLabel = ct.CTkLabel(self, text = "Random Sequence Generator", font = fontFamilyH1) 
+        appLabel.pack(pady = "15")       
+        """
         # Input fields
         inputFrame = ttk.Frame(self)
 
@@ -34,7 +38,6 @@ class Application(tk.Tk):
         generateButton = ttk.Button(self, text = "Generate", width = 15, command = self.buttonAction) 
         
         # Displays widgets to GUI
-        appLabel.pack(pady = "15")
         inputFrame.pack()
         startLabel.grid(column = 0, row = 0)
         startEntry.grid(column = 1, row = 0, padx = 2)
@@ -58,13 +61,13 @@ class Application(tk.Tk):
         numbers = number_generator(int(self.startValue.get()), int(self.endValue.get())) # Initiates when every condition is met
         
         for number in range(len(numbers)):
-            messagebox.showinfo(title = "Random numbers", message = f"Random number ({number + 1}): {numbers[number]}")
+            messagebox.showinfo(title = "Random numbers", message = f"Random number ({number + 1}): {numbers[number]}")"""
 
 if __name__ == "__main__":
     root = Application()
-    root.mainloop()"""
+    root.mainloop()
 
-# UI
+"""
 ct.set_appearance_mode("System")
 ct.set_default_color_theme("blue")
 
@@ -77,4 +80,4 @@ appLabel = ct.CTkLabel(root, text = "Number Generator")
 appLabel.pack()  
 
 if __name__ == "__main__":
-    root.mainloop()
+    root.mainloop()"""
