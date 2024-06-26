@@ -4,6 +4,7 @@ from functions import randSeq # type: ignore
 from tkinter import messagebox
 from check_string_func import check_string # type: ignore
 import pyglet # type: ignore
+from PIL import Image
 
 ct.set_appearance_mode("System")
 ct.set_default_color_theme("blue")
@@ -15,16 +16,20 @@ class Application(ct.CTk):
 
         # Frontend of GUI
         self.title("Random Sequence Generator")
-        self.geometry("600x280")
+        self.geometry("600x330")
         self.iconbitmap("dice.ico")
+        self.resizable(width = False, height = False)
 
         fontFamilyH1 = ('Roboto Normal', 60) 
         fontFamilyH2 = ('Roboto Normal', 40)
         fontFamilyH3 = ('Roboto Normal', 20)
         widthEntry = 150
 
-        appLabel = ct.CTkLabel(self, text = "Random Sequences", font = fontFamilyH1) 
-        appLabel.pack(pady = "15")       
+        appLabel = ct.CTkLabel(self, text = "Random Sequences", font = fontFamilyH1)
+
+        # Information button
+        infoImage = ct.CTkImage(light_image = Image.open("information-button.png"), dark_image = Image.open("information-button - dark.png"), size = (25, 25))
+        info = ct.CTkLabel(self, image = infoImage, text = "")     
         
         # Input fields
         inputFrame = ct.CTkFrame(self)
@@ -41,8 +46,9 @@ class Application(ct.CTk):
         generateButton = ct.CTkButton(self, text = "Generate", font = fontFamilyH3, command = self.buttonAction, width = 200, height = 200) 
         
         # Displays widgets to GUI
-        appLabel.pack(pady = "15")    
-        inputFrame.pack()
+        info.pack(anchor = "e", pady = 5)
+        appLabel.pack()    
+        inputFrame.pack(pady = 15)
         startLabel.grid(column = 0, row = 0)
         startEntry.grid(column = 1, row = 0, padx = 2)
         endLabel.grid(column = 0, row = 1)
