@@ -71,7 +71,7 @@ ct.set_default_color_theme("blue")
 root = ct.CTk()
 root.geometry("600x280")
 root.title("Number Generator")
-#root.iconbitmap("dice.ico")
+root.iconbitmap("dice.ico")
 
 appLabel = ct.CTkLabel(root, text = "Number Generator")    
 
