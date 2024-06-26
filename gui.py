@@ -1,9 +1,10 @@
 import tkinter as tk
+import customtkinter as ct
 from tkinter import ttk, font, messagebox
 from num_gen import number_generator
 from check_string_func import check_string
 
-
+"""
 class Application(tk.Tk):
     def __init__(self):
         super().__init__()
@@ -61,4 +62,18 @@ class Application(tk.Tk):
 
 if __name__ == "__main__":
     root = Application()
+    root.mainloop()"""
+
+# UI
+ct.set_appearance_mode("System")
+ct.set_default_color_theme("blue")
+
+root = ct.CTk()
+root.geometry("600x280")
+root.title("Number Generator")
+#root.iconbitmap("dice.ico")
+
+appLabel = ct.CTkLabel(root, text = "Number Generator")    
+
+if __name__ == "__main__":
     root.mainloop()
