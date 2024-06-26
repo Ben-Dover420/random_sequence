@@ -73,7 +73,8 @@ root.geometry("600x280")
 root.title("Number Generator")
 root.iconbitmap("dice.ico")
 
-appLabel = ct.CTkLabel(root, text = "Number Generator")    
+appLabel = ct.CTkLabel(root, text = "Number Generator")  
+appLabel.pack()  
 
 if __name__ == "__main__":
     root.mainloop()
