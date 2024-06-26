@@ -1,9 +1,9 @@
 import tkinter as tk
-import customtkinter as ct
-from functions import randSeq
-from tkinter import ttk, messagebox
-from check_string_func import check_string
-import pyglet
+import customtkinter as ct # type: ignore
+from functions import randSeq # type: ignore
+from tkinter import messagebox
+from check_string_func import check_string # type: ignore
+import pyglet # type: ignore
 
 ct.set_appearance_mode("System")
 ct.set_default_color_theme("blue")
