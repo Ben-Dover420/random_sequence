@@ -1,6 +1,6 @@
 import numpy as np
 
-def number_generator(start, stop):
+def randSeq(start, stop):
     random_numbers = [] # Empty array 
     numbers = np.arange(start, stop + 1) # [start, stop]
     length = len(numbers)

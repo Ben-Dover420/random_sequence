@@ -1,6 +1,7 @@
 import tkinter as tk
 import customtkinter as ct
-from tkinter import ttk, font, messagebox
+from functions import randSeq
+from tkinter import ttk, messagebox
 from check_string_func import check_string
 import pyglet
 
@@ -13,31 +14,34 @@ class Application(ct.CTk):
         super().__init__()
 
         # Frontend of GUI
-        self.title("Number Generator")
+        self.title("Random Sequence Generator")
         self.geometry("600x280")
         self.iconbitmap("dice.ico")
 
-        fontFamilyH1 = ('Roboto Normal', 40) 
-        fontFamilyH2 = ('Roboto Normal', 25)
+        fontFamilyH1 = ('Roboto Normal', 60) 
+        fontFamilyH2 = ('Roboto Normal', 40)
+        fontFamilyH3 = ('Roboto Normal', 20)
+        widthEntry = 150
 
-        appLabel = ct.CTkLabel(self, text = "Random Sequence Generator", font = fontFamilyH1) 
+        appLabel = ct.CTkLabel(self, text = "Random Sequences", font = fontFamilyH1) 
         appLabel.pack(pady = "15")       
-        """
+        
         # Input fields
-        inputFrame = ttk.Frame(self)
+        inputFrame = ct.CTkFrame(self)
 
         self.startValue = tk.StringVar()
-        startEntry = ttk.Entry(inputFrame, textvariable = self.startValue, width = 5, font = fontFamilyH2)
-        startLabel = ttk.Label(inputFrame, text = "Start value:", font = fontFamilyH2)
+        startEntry = ct.CTkEntry(inputFrame, textvariable = self.startValue, width = widthEntry, font = fontFamilyH2)
+        startLabel = ct.CTkLabel(inputFrame, text = "Start value:", font = fontFamilyH2)
 
         self.endValue = tk.StringVar()
-        endEntry = ttk.Entry(inputFrame, textvariable = self.endValue, width = 5, font = fontFamilyH2)
-        endLabel = ttk.Label(inputFrame, text = "End value:", font = fontFamilyH2)
+        endEntry = ct.CTkEntry(inputFrame, textvariable = self.endValue, width = widthEntry, font = fontFamilyH2)
+        endLabel = ct.CTkLabel(inputFrame, text = "End value:", font = fontFamilyH2)
 
         # Generate button
-        generateButton = ttk.Button(self, text = "Generate", width = 15, command = self.buttonAction) 
+        generateButton = ct.CTkButton(self, text = "Generate", font = fontFamilyH3, command = self.buttonAction, width = 200, height = 200) 
         
         # Displays widgets to GUI
+        appLabel.pack(pady = "15")    
         inputFrame.pack()
         startLabel.grid(column = 0, row = 0)
         startEntry.grid(column = 1, row = 0, padx = 2)
@@ -58,26 +62,11 @@ class Application(ct.CTk):
             messagebox.showerror(title = "Invalid intervall", message = "End value has to be greater than start value, please try again.")
             return
             
-        numbers = number_generator(int(self.startValue.get()), int(self.endValue.get())) # Initiates when every condition is met
+        numbers = randSeq(int(self.startValue.get()), int(self.endValue.get())) # Initiates when every condition is met
         
         for number in range(len(numbers)):
-            messagebox.showinfo(title = "Random numbers", message = f"Random number ({number + 1}): {numbers[number]}")"""
+            messagebox.showinfo(title = "Random numbers", message = f"Random number ({number + 1}): {numbers[number]}")
 
 if __name__ == "__main__":
     root = Application()
     root.mainloop()
-
-"""
-ct.set_appearance_mode("System")
-ct.set_default_color_theme("blue")
-
-root = ct.CTk()
-root.geometry("600x280")
-root.title("Number Generator")
-root.iconbitmap("dice.ico")
-
-appLabel = ct.CTkLabel(root, text = "Number Generator")  
-appLabel.pack()  
-
-if __name__ == "__main__":
-    root.mainloop()"""
