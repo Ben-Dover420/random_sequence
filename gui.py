@@ -1,5 +1,4 @@
 import tkinter as tk
-import sv_ttk
 from tkinter import ttk, font, messagebox
 from num_gen import number_generator
 from check_string_func import check_string
@@ -20,7 +19,7 @@ class Application(tk.Tk):
         appLabel = ttk.Label(self, text = "Number Generator", font = fontFamilyH1)        
 
         # Input fields
-        inputFrame = ttk.Frame(self, style = 'styledFrame.TFrame')
+        inputFrame = ttk.Frame(self)
 
         self.startValue = tk.StringVar()
         startEntry = ttk.Entry(inputFrame, textvariable = self.startValue, width = 5, font = fontFamilyH2)
@@ -31,7 +30,7 @@ class Application(tk.Tk):
         endLabel = ttk.Label(inputFrame, text = "End value:", font = fontFamilyH2)
 
         # Generate button
-        generateButton = ttk.Button(self, text = "Generate", style = 'Accent.TButton', width = 15, command = self.buttonAction) 
+        generateButton = ttk.Button(self, text = "Generate", width = 15, command = self.buttonAction) 
         
         # Displays widgets to GUI
         appLabel.pack(pady = "15")
@@ -62,5 +61,4 @@ class Application(tk.Tk):
 
 if __name__ == "__main__":
     root = Application()
-    sv_ttk.set_theme("dark")
     root.mainloop()
