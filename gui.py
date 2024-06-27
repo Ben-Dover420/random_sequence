@@ -59,16 +59,8 @@ class Application(ct.CTk):
         if not self.startValue.get() or not self.endValue.get(): # Checks if there are any values in startvalue and endvalue
             messagebox.showerror(title = "No value(s)", message = "Please input value(s) for start value and end value.")
             return
-        
-        if not check_string(self.startValue.get()) or not check_string(self.endValue.get()): # Checks if start value and end value are integers
-            messagebox.showerror(title = "Non-integer value(s)", message = "Start value and end value have to be a number, please try again.")
-            return
             
-        if int(self.startValue.get()) >= int(self.endValue.get()): # Checks if start value is greater than end value
-            messagebox.showerror(title = "Invalid intervall", message = "End value has to be greater than start value, please try again.")
-            return
-            
-        numbers = randSeq(int(self.startValue.get()), int(self.endValue.get())) # Initiates when every condition is met
+        numbers = randSeq(self.startValue.get(), self.endValue.get()) # Initiates when every condition is met
         
         for number in range(len(numbers)):
             messagebox.showinfo(title = "Random numbers", message = f"Random number ({number + 1}): {numbers[number]}")
