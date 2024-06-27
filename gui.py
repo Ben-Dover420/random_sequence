@@ -7,7 +7,7 @@ import pyglet # type: ignore
 from PIL import Image
 
 ct.set_appearance_mode("System")
-ct.set_default_color_theme("blue")
+ct.set_default_color_theme("dark-blue")
 pyglet.font.add_file('Roboto-Regular.ttf')
 
 class Application(ct.CTk):
@@ -29,7 +29,7 @@ class Application(ct.CTk):
 
         # Information button
         infoImage = ct.CTkImage(light_image = Image.open("information-button.png"), dark_image = Image.open("information-button - dark.png"), size = (25, 25))
-        info = ct.CTkLabel(self, image = infoImage, text = "")     
+        infoButton = ct.CTkButton(self, image = infoImage, text = "", command = self.infoButton, fg_color = "transparent", hover_color = ("#f3f2f2", "#202020"), width = 0, height = 0)
         
         # Input fields
         inputFrame = ct.CTkFrame(self)
@@ -46,7 +46,7 @@ class Application(ct.CTk):
         generateButton = ct.CTkButton(self, text = "Generate", font = fontFamilyH3, command = self.buttonAction, width = 200, height = 200) 
         
         # Displays widgets to GUI
-        info.pack(anchor = "e", pady = 5)
+        infoButton.pack(anchor = "e", pady = 5)
         appLabel.pack()    
         inputFrame.pack(pady = 15)
         startLabel.grid(column = 0, row = 0)
@@ -72,6 +72,10 @@ class Application(ct.CTk):
         
         for number in range(len(numbers)):
             messagebox.showinfo(title = "Random numbers", message = f"Random number ({number + 1}): {numbers[number]}")
+    
+    def infoButton(self):
+            messagebox.showinfo(title = "How to use the program", message = "Welcome to Random Sequence Generator! In this program, you can generate elements in a sequence in a random order. You can, by default, generate a random sequence of numbers and letters by entering your desired order in Start value and End value. If you want to skip certain elements, generate random elements from a unique list, or change the appearence of the program, then go to Advanced settings. Have fun!")
+            return
 
 if __name__ == "__main__":
     root = Application()
