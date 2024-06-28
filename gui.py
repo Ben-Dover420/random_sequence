@@ -56,14 +56,23 @@ class Application(ct.CTk):
         generateButton.pack(pady = "25")
 
     def buttonAction(self):
+        # Conditions before using randSeq function.
         if not self.startValue.get() or not self.endValue.get(): # Checks if there are any values in startvalue and endvalue
             messagebox.showerror(title = "No value(s)", message = "Please input value(s) for start value and end value.")
             return
-            
-        numbers = randSeq(self.startValue.get(), self.endValue.get()) # Initiates when every condition is met
+
+        if not ((self.startValue.get().isnumeric() and self.endValue.get().isnumeric()) or (self.startValue.get().isalpha() and self.endValue.get().isalpha())): # Checks if we have numbers values
+            messagebox.showerror(title = "Incorrect values", message = "The start- and/or end values appear to be neither a number nor a letter. Please input the correct values. If you want to input your own values, do so in Advanced settings.")    
+            return
+        #not (self.startValue.get().isalpha() and self.endValue.get().isalpha()) 
+        randNumLet = randSeq(self.startValue.get(), self.endValue.get()) # Initiates when every condition is met
         
-        for number in range(len(numbers)):
-            messagebox.showinfo(title = "Random numbers", message = f"Random number ({number + 1}): {numbers[number]}")
+        randList = "" # The randomised list
+
+        for i, elem in enumerate(randNumLet):
+             randList += f"Item ({i}): {elem}\n"
+
+        messagebox.showinfo(title = "Randomised list", message = randList)
     
     def infoButton(self):
             messagebox.showinfo(title = "How to use the program", message = "Welcome to Random Sequence Generator! In this program, you can generate elements in a sequence in a random order. You can, by default, generate a random sequence of numbers and letters by entering your desired order in Start value and End value. If you want to skip certain elements, generate random elements from a unique list, or change the appearence of the program, then go to Advanced settings. Have fun!")
