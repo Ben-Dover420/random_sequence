@@ -4,6 +4,10 @@ def randSeq(start, stop): # Handles the default cases: numbers and letters.
     random = []
     first = ord(start) if start.isalpha() else int(start)
     end = ord(stop) if stop.isalpha() else int(stop)
+    
+    if first > end: 
+        return 
+
     elements = np.arange(first, end + 1) # [first, end]
     length = len(elements)
 

@@ -61,11 +61,15 @@ class Application(ct.CTk):
             messagebox.showerror(title = "No value(s)", message = "Please input value(s) for start value and end value.")
             return
 
-        if not ((self.startValue.get().isnumeric() and self.endValue.get().isnumeric()) or (self.startValue.get().isalpha() and self.endValue.get().isalpha())): # Checks if we have numbers values
-            messagebox.showerror(title = "Incorrect values", message = "The start- and/or end values appear to be neither a number nor a letter. Please input the correct values. If you want to input your own values, do so in Advanced settings.")    
+        if not ((self.startValue.get().isnumeric() and self.endValue.get().isnumeric()) or (self.startValue.get().isalpha() and self.endValue.get().isalpha())): # Checks if we have both numbers or letters as values
+            messagebox.showerror(title = "Incorrect value(s)", message = "The start- and end values are not both number or letters. Please input the correct values. If you want to input your own values, do so in Advanced settings.")    
             return
-        #not (self.startValue.get().isalpha() and self.endValue.get().isalpha()) 
+            
         randNumLet = randSeq(self.startValue.get(), self.endValue.get()) # Initiates when every condition is met
+        
+        if not randNumLet: # If it's empty, that means startValue > endValue.
+            messagebox.showerror(title = "Start value greater than end value", message = "The start value is greater than the end value. Please input the values in the correct order. If you want to change the order, go to Advanced settings.")
+            return
         
         randList = "" # The randomised list
 
